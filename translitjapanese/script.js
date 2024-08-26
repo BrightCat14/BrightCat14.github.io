@@ -44,12 +44,13 @@ function toggleTheme() {
     }
 }
 
+// Установка темы при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
+    // Определяем переменные внутри обработчика события
     const body = document.body;
     const container = document.querySelector('.container');
     const textarea = document.querySelector('textarea');
     
-    // Установка темы при загрузке страницы
     const savedTheme = localStorage.getItem('theme');
 
     if (savedTheme === 'dark') {
