@@ -26,7 +26,7 @@ function toggleTheme() {
     const textarea = document.querySelector('textarea');
     
     if (body.classList.contains('light-mode')) {
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme', 'dark');
         body.classList.remove('light-mode');
         body.classList.add('dark-mode');
         container.classList.remove('light-mode');
@@ -34,7 +34,7 @@ function toggleTheme() {
         textarea.classList.remove('light-mode');
         textarea.classList.add('dark-mode');
     } else {
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('theme', 'light');
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
         container.classList.remove('dark-mode');
@@ -43,17 +43,22 @@ function toggleTheme() {
         textarea.classList.add('light-mode');
     }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const container = document.querySelector('.container');
+    const textarea = document.querySelector('textarea');
+    
     // Установка темы при загрузке страницы
     const savedTheme = localStorage.getItem('theme');
 
     if (savedTheme === 'dark') {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        container.classList.remove('dark-mode');
-        container.classList.add('light-mode');
-        textarea.classList.remove('dark-mode');
-        textarea.classList.add('light-mode');
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        container.classList.remove('light-mode');
+        container.classList.add('dark-mode');
+        textarea.classList.remove('light-mode');
+        textarea.classList.add('dark-mode');
     } else {
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
