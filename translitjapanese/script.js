@@ -1,4 +1,4 @@
-// Словарь для транслитерации
+// Создаем словарь для транслитерации
 const transliterationMap = {
     'а': 'ア', 'б': 'ブ', 'в': 'ヴ', 'г': 'グ', 'д': 'ド',
     'е': 'エ', 'ё': 'ヨ', 'ж': 'ジュ', 'з': 'ズ', 'и': 'イ',
@@ -6,38 +6,40 @@ const transliterationMap = {
     'о': 'オ', 'п': 'プ', 'р': 'ル', 'с': 'ス', 'т': 'ト',
     'у': 'ウ', 'ф': 'フ', 'х': 'ハ', 'ц': 'ツ', 'ч': 'チ',
     'ш': 'シュ', 'щ': 'シュ', 'ъ': '', 'ы': 'イ', 'ь': '',
-    'э': 'エ', 'ю': 'ユ', 'я': 'ヤ', ' ': ' ', '.': '。', ',': '、'
+    'э': 'エ', 'ю': 'ユ', 'я': 'ヤ', ' ': ' ', '.': '。', ',': '、',
 };
 
 // Функция для транслитерации
-function transliterateToJapanese() {
+function transliterate() {
     const inputText = document.getElementById("inputText").value.toLowerCase();
     let result = "";
+
     for (let char of inputText) {
         result += transliterationMap[char] || char;
     }
-    document.getElementById("result").innerText = result;
+
+    document.getElementById("resultText").textContent = result;
 }
 
-// Функция для переключения темы
+// Функция переключения темы
 function toggleTheme() {
-    const body = document.body;
-    const container = document.querySelector('.container');
-    const textarea = document.querySelector('textarea');
-    
-    if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        container.classList.remove('light-mode');
-        container.classList.add('dark-mode');
-        textarea.classList.remove('light-mode');
-        textarea.classList.add('dark-mode');
-    } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        container.classList.remove('dark-mode');
-        container.classList.add('light-mode');
-        textarea.classList.remove('dark-mode');
-        textarea.classList.add('light-mode');
-    }
+    const isChecked = document.getElementById('theme-toggle').checked;
+    const theme = isChecked ? 'dark' : 'light';
+    document.body.className = theme;
+
+    // Сохраняем текущую тему в Local Storage
+    localStorage.setItem('theme', theme);
 }
+
+// Функция инициализации темы при загрузке страницы
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    document.getElementById('theme-toggle').checked = (savedTheme === 'dark');
+}
+
+// Вызов функции инициализации при загрузке страницы
+document.addEventListener('DOMContentLoaded', initializeTheme);
+
+// Привязка переключателя темы к функции toggleTheme
+document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
