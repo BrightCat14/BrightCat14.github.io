@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggleBtn.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
+        themeToggleBtn.textContent = body.classList.contains('dark-mode') ? 'Светлая тема' : 'Темная тема';
 
-        // Сохранение темы в локальное хранилище
         if (body.classList.contains('dark-mode')) {
             localStorage.setItem('theme', 'dark');
         } else {
@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Установка темы при загрузке страницы
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
+        themeToggleBtn.textContent = 'Светлая тема';
     }
 });
