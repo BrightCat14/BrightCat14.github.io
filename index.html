@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AkaruiNeko - Личный сайт</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -13,47 +14,27 @@
                 <h1 id="nickname">AkaruiNeko</h1>
                 <img src="logo.jpg" alt="AkaruiNeko" class="avatar">
             </div>
+            <button id="theme-toggle" class="theme-toggle">Переключить тему</button>
         </header>
-        
         <main>
             <section class="about">
                 <h2>Обо мне</h2>
-                <p>Привет, я Георгий (AkaruiNeko). Снимаю любительский контент на YouTube, люблю играть в Minecraft, и CS2, также я умею программировать на python, и считаю себя нескучным человеком.</p>
+                <p>Привет, я Георгий (AkaruiNeko). Снимаю любительский контент на YouTube, люблю разговаривать, играть в Minecraft с читиками, иногда CS2, и считаю себя нескучным человеком.</p>
             </section>
-            
-            <section class="spotify-weather">
-                <!-- Spotify Embed -->
-                <div class="spotify-card">
-                    <h3>spotify.json</h3>
-                    <div class="spotify-info">
-                        <div class="spotify-playing">Сейчас ничего не играет</div>
-                        <div class="spotify-artist">Тут мог быть классный исполнитель</div>
-                        <div class="spotify-time">
-                            <span>0:00</span>
-                            <div class="progress-bar"></div>
-                            <span>0:00</span>
-                        </div>
+            <section class="content">
+                <h2>Контент</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Мой YouTube канал</h3>
+                        <p>Смотрите мои видео на <a href="https://www.youtube.com/@AkaruiNeko" target="_blank">YouTube</a>.</p>
                     </div>
-                </div>
-
-                <!-- Time, Date, Weather -->
-                <div class="info-cards">
-                    <div class="info-card">
-                        <h4>time.py</h4>
-                        <p id="time">11:51:23 UTC+3</p>
-                    </div>
-                    <div class="info-card">
-                        <h4>date.py</h4>
-                        <p id="date">25 сентября 2024 г.</p>
-                    </div>
-                    <div class="info-card">
-                        <h4>weather.json</h4>
-                        <p id="weather">Солнечно<br>+17.8 °C</p>
+                    <div class="card">
+                        <h3>Посмотрите мою классную утилиту</h3>
+                        <p>Переведите русскую фразу в японские символы, которые звучат как русские, на этой <a href="https://brightcat14.github.io/translitjapanese/" target="_blank">странице</a>.</p>
                     </div>
                 </div>
             </section>
         </main>
-        
         <footer>
             <p>&copy; 2024 AkaruiNeko. Все права защищены.</p>
         </footer>
